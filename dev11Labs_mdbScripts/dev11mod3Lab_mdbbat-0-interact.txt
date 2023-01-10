@@ -1,0 +1,65 @@
+#-
+#- description: using mdb interactive @mdb-prompt
+#-
+#- version:
+#-  MPLABX-v6.05, XC32-v4.21
+#-
+#- usage:
+#-  -) clone dev11gh repo into any path - eg:
+#-      <my_path>\dev11gh
+#-
+#-  -) make sure the following two paths are in your OS-search path:
+#-      <mplabx_install_path>\mplab_platform\bin
+#-      <mplabx_install_path>\gnuBins\GnuWin32\bin
+#-
+#-  -) open DOS-shell and cd into git-clone 
+#-      (dos)> cd <my_path>\dev11gh\
+#-
+#-  -) start mdb 
+#-      (dos: dev11gh\)> mdb.bat
+#-     -> this brings you to the mdb-prompt where you can check what's available with
+#-          >help
+#-     -> or on a specific cmd
+#-          >help deviceandtool
+#-
+#-  -) to save some typing, you can use the 'dev11mod3Lab_mdbbat-1b-cmd.txt' cmd-file with
+#-      mdb, 
+#-          (dos: dev11gh\)> mdb.bat .\dev11Labs_mdbScripts\dev11mod3Lab_mdbbat-1b-cmd.txt
+#-      to setup the basic part, like 'device -> connect to debugger -> download *elf'
+#-      So you can next play with the mdb-execution cmds
+#-
+#- history:
+#-  v1.0: working version (SL, 3.1.23)
+#-
+
+echo Starting dev11mod3Lab_mdbbat interactive
+
+device ATSAMD21J18A
+set communication.interface swd 
+hwtool EDBG 
+
+#- relative path from 'dev11gh\' to 'elf' 
+#- win-path with '\' as directory-separator:
+program .\dev11Labs_fw\firmware\CICDgit_samd21xplp.X\dist\samd21xplp\production\CICDgit_samd21xplp.X.production.elf
+#-lin-path with '/' as directory-separator
+#program ./dev11Labs_fw/firmware/CICDgit_samd21xplp.X/dist/samd21xplp/production/CICDgit_samd21xplp.X.production.elf
+
+#-runs FW as is, so
+#-  a) LEDtoggle@1Hz
+#-  b) UARTTX ch1='a' and ch2='b'
+#-  ->execute 'halt' (must 'halt' before you change sth!) and change ch2 
+#-      ='c' with 'write /p char2prntIdx 1'
+#-      ='d' with 'write /p char2prntIdx 2'
+#-  ->can stop exec by pressing SW0, which 
+#-      -) jumps into testEnd() 
+#-      -) prints "testEnd with finalLedCnt=$finalLedCnt" with value of global 'finalLedCnt' 
+#-      -) and loops there
+#run
+
+#-SL: cmds for quick usage
+echo - run -
+echo - reset -
+echo - halt -
+echo - print myCnt -
+echo - print char2prntIdx -
+echo - write /p char2prntIdx 0 #0->'b', 1->'c', 2->'d' -

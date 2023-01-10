@@ -1,0 +1,83 @@
+#-
+#- description: mdb call with command-file
+#-
+#- version:
+#-  MPLABX-v6.05, XC32-v4.21
+#-
+#- usage:
+#-  -) clone dev11gh repo into any path - eg:
+#-      <my_path>\dev11gh
+#-
+#-  -) make sure the following two paths are in your OS-search path:
+#-      <mplabx_install_path>\mplab_platform\bin
+#-      <mplabx_install_path>\gnuBins\GnuWin32\bin
+#-
+#-  -) open DOS-shell and cd into git-clone 
+#-      (dos)> cd <my_path>\dev11gh\
+#-
+#-  -) start mdb call from script 
+#-      (dos: dev11gh\)> .\dev11Labs_mdbScripts\dev11mod3Lab_mdbbat-1a-run.bat
+#-         -> which basically does
+#-      (dos: dev11gh\)> mdb.bat .\dev11Labs_mdbScripts\dev11mod3Lab_mdbbat-1b-cmd.txt
+#-
+#- history:
+#-  v1.0: working version (SL, 3.1.23)
+#-
+
+echo Starting dev11mod3Lab_mdbbat automatic
+
+device ATSAMD21J18A
+set system.disableerrormsg true
+set system.disableoutput true
+set system.yestoalldialog true
+set communication.interface swd
+hwtool EDBG 
+
+#- relative path from 'dev11gh\' to 'elf' 
+#- win-path with '\' as directory-separator:
+program .\dev11Labs_fw\firmware\CICDgit_samd21xplp.X\dist\samd21xplp\production\CICDgit_samd21xplp.X.production.elf
+#-lin-path with '/' as directory-separator
+#program ./dev11Labs_fw/firmware/CICDgit_samd21xplp.X/dist/samd21xplp/production/CICDgit_samd21xplp.X.production.elf
+
+
+break testEnd
+reset
+run
+#-in msec (don't put that command behind the cmd - mdbbat interprets it and will never stop!)
+echo "start run for 4.500msec=4,5sec - stop at any time by pressing SW0"
+wait 4500
+halt
+
+#-print test-variables and then quit
+#-runs FW as is, so
+#-  a) LEDtoggle@1Hz
+#-  b) UARTTX ch1='a' and ch2='b'
+#-  ->can 'halt' and change ch2 
+#-      ='c' with 'write /p char2prntIdx 1'
+#-      ='d' with 'write /p char2prntIdx 2'
+#-  ->can stop exec by pressing SW0, which 
+#-      -) jumps into testEnd() 
+#-      -) prints "testEnd with finalLedCnt=$finalLedCnt" with value of global 'finalLedCnt' 
+#-      -) and loops there
+
+#-just to show we can change the FW-variable 'char2prntIdx' and continue 
+#-  with a different uartOutput, we stopped above (->halt), change the value
+#-  of 'char2prntIdx' and continue, so uart-console should now 
+#-  print aaaaadddddaaaa... instead of originally/before aaaaabbbbbaaaa...
+echo - print myCnt -
+echo - print char2prntIdx -
+echo - write /p char2prntIdx 0 #0->'b', 1->'c', 2->'d' -
+print char2prntIdx
+print finalLedCnt
+
+echo change char2prntIdx=1 -> should now see aaaaacccccaaaa....
+write /p char2prntIdx 1
+continue
+wait 3500
+halt
+
+#-quit mdb.bat-run
+echo ####-quit mdb... -> stop FW by 'pressing SW0'
+quit
+
+#eof
