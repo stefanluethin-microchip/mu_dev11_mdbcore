@@ -1,0 +1,63 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+#-SL: MPLABX files
+*/firmware/*.X/build/
+*/firmware/*.X/dist/
+*/firmware/*.X/.generated_files/
+*/firmware/*.X/nbproject/Makefile-*
+*/firmware/*.X/nbproject/private/
+#-temp file from mdb.bat, mdbcs-runs
+*/firmware/*.X/MPLAB*.xml*
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+#-eof
