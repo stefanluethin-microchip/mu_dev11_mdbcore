@@ -52,3 +52,8 @@
 @ECHO _
 @ECHO ####-mdb quit -> stop FW by 'pressing SW0'
 @ECHO ======(%scrN%): SUCCESS
+@ECHO _
+@ECHO ###############################################################
+@ECHO ####-PRESS button SW0 to stop execution and jump to endOfTest()
+@ECHO _
+
