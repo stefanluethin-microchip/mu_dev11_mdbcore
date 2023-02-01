@@ -61,3 +61,18 @@ Mkfile.old
 dkms.conf
 
 #-eof
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/xc32_call.sh
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/xc32_help_gcc_help.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/xc32_log_flist-allheaders.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/xc32_log_gcc_e-dm.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/xc32_log-mplabx_packs_ANSEL.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_call_log.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_comp_completePrj_log1.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_comp_completePrj_log2-global.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_comp_completePrj_log3-gcc.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_comp_completePrj_log4-ld.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_comp_log.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_gcc-E.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_gcc-E_definitions-h.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/zzz-old/xc32_gcc-E-dM.txt
+dev11Labs_fw/firmware/CICDgit_samd21xplp.X/foo.h
