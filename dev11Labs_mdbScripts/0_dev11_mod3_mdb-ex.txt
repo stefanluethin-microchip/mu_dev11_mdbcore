@@ -2,7 +2,7 @@
 where git
 git clone https://github.com/stefanluethin-microchip/mu_dev11_mdbcore 
 cd .\mu_dev11_mdbcore
-git checkout finalVersion_4_dev11-mod3-mdb
+git checkout finalVersion_4_dev11-mod3_mdb
 where prjMakefilesGenerator.bat
 ls -F .\dev11Labs_fw\firmware\
 ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\nbproject
