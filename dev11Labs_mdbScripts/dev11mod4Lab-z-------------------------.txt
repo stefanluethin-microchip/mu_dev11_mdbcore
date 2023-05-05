@@ -1,3 +1,0 @@
--) test if I can clone git-repo + directly run mdb OR do I need to compile!?
-
-#eof
