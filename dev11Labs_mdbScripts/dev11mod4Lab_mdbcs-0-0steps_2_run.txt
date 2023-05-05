@@ -5,7 +5,9 @@
 where git
 git clone https://github.com/stefanluethin-microchip/mu_dev11_mdbcore 
 cd .\mu_dev11_mdbcore
-git checkout finalVersion_4_dev11-mod3_mdb
+git checkout finalVersion_4_dev11-mod4_mdbcs
+ls -laF
+ls -laF dev11Labs_mdbScripts
 
  #-update makefiles and compile
 where prjMakefilesGenerator.bat
