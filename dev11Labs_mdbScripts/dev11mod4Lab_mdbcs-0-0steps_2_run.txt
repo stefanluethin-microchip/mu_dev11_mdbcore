@@ -1,0 +1,35 @@
+#---Steps to run mdbcs-demo of dev11-MU-class
+##--    SL, 5.5.2022
+
+ #-clone git-repo and checkout appropriate git-tag
+where git
+git clone https://github.com/stefanluethin-microchip/mu_dev11_mdbcore 
+cd .\mu_dev11_mdbcore
+git checkout finalVersion_4_dev11-mod3_mdb
+
+ #-update makefiles and compile
+where prjMakefilesGenerator.bat
+ls -F .\dev11Labs_fw\firmware\
+ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\nbproject
+prjMakefilesGenerator.bat .\dev11Labs_fw\firmware\CICDgit_samd21xplp.X
+ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\nbproject
+ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\
+pushd .
+cd .\dev11Labs_fw\firmware\CICDgit_samd21xplp.X  &&  make
+popd
+ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\dist\samd21xplp\production
+
+#- elf create -> connect SAMD21-xpl and open console on vCOM of SAMD21-xpl
+"C:\Program Files (x86)\teraterm\ttermpro.exe"
+
+ #-setup env-part -> will fail 1.time as first need to save %PATH% into %BASEPATH% 
+.\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-1Setup_env.bat
+set BASEPATH=%PATH%
+.\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-1Setup_env.bat
+
+ #-setup CLASSPATH (-> classpath.bat created by
+ #-  <sdk-inst>\MPLAB_X\mdbcs\utils\config.py
+.\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-2Classpath.bat
+
+ #-run mdbcs/groovy-script 'dev11mod4Lab_mdbcs-scr.groovy'
+.\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-3run.bat
