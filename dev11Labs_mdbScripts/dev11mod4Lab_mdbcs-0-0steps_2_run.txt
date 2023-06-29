@@ -5,7 +5,7 @@
 where git
 git clone https://github.com/stefanluethin-microchip/mu_dev11_mdbcore 
 cd .\mu_dev11_mdbcore
-git checkout finalVersion_4_dev11-mod4_mdbcs
+git checkout final_4_dev11-mod4_mdbcs
 ls -laF
 ls -laF dev11Labs_mdbScripts
 
