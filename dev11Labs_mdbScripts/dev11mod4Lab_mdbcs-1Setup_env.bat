@@ -26,8 +26,19 @@
 @SET MPLABX_HOME=C:\Program Files\Microchip\MPLABX\%MPLABX_V%
 @SET JAVA_HOME=%MPLABX_HOME%\sys\java\%JAVA_VERS%
 @SET GNU_HOME=%MPLABX_HOME%\gnuBins\GnuWin32
-@SET GROOVY_HOME=C:\Program Files (x86)\Groovy\Groovy-2.5.8
-@SET PYTHON2_HOME=C:\Python\v2.7.14
+REM old 32bit groovy 
+REM @SET GROOVY_HOME=C:\Program Files (x86)\Groovy\Groovy-2.5.8
+REM  !! need to have JAVA_HOME point to MPLABX-java BEFORE you install Groovy 
+REM		otherwise you'll get the following stupid error when trying to run groovy:
+REM   groovy --version
+REM   error: dynamic library C:\Program Files\Microchip\MPLABX\v6.05\sys\java\zulu8.64.0.19-ca-fx-jre8.0.345-win_x64\bin\server\jvm.dll exists but could not be loaded!
+REM   This may be caused e.g. by trying to use a 32-bit executable to load a 64-bit jvm (or vice versa)
+REM   error (win code 193): (null)
+REM   error: could not find client or server jvm under C:\Program Files\Microchip\MPLABX\v6.05\sys\java\zulu8.64.0.19-ca-fx-jre8.0.345-win_x64
+REM       please check that it is a valid jdk / jre containing the desired type of jvm
+REM  -> better to use the new 64bit-version of Groovy below
+@SET GROOVY_HOME=C:\Program Files\Groovy\groovy-4.0.12
+@SET PYTHON2_HOME=C:\Program Files\Python\v2.7.18
 
  REM fix Variable
 @SET scrN=dev11mod4Lab_mdbcs-1Setup_env.bat

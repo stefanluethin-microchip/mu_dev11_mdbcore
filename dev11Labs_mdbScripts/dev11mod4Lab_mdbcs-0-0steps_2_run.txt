@@ -28,9 +28,12 @@ ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\dist\samd21xplp\production
 .\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-1Setup_env.bat
 set BASEPATH=%PATH%
 .\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-1Setup_env.bat
+where python &  echo "python-version:" & python --version
+where groovy &  echo "groovy-version:" & groovy --version
+where java &  echo "java-version:" & java -version
 
  #-setup CLASSPATH (-> classpath.bat created by
- #-  <sdk-inst>\MPLAB_X\mdbcs\utils\config.py
+ #-  ()> python2 <sdk-inst>\MPLAB_X\mdbcs\utils\config.py <path-2-mplabx>
 .\dev11Labs_mdbScripts\dev11mod4Lab_mdbcs-2Classpath.bat
 
  #-run mdbcs/groovy-script 'dev11mod4Lab_mdbcs-scr.groovy'
