@@ -1,5 +1,5 @@
 @ECHO off
-@REM Description: this script sets up the environment to use 'mdbcs' with 'groovy'
+@REM Description: this script sets up the environment to use 'mdbcs' with 'groovy'  
 @REM              Basically it uses some environment-variables you must adjust to your 
 @REM               (->see below section 'user-Variables:') and then extends the
 @REM               OS-searchpath.
