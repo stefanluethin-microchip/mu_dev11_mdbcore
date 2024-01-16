@@ -1,3 +1,1 @@
--) test if I can clone git-repo + directly run mdb OR do I need to compile!?
-
-#eof
+ONLY dummy file to separate the file for the two topics 'mdb' and 'mbcs'
