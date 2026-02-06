@@ -1,5 +1,11 @@
-#---Steps to run mdb-demo of dev11-MU-class
+#---Steps to run mdb-demo of dev11-MU-class which contains 2 steps:
+#--- Step1: compile  -> manual step, but could be in a bat-script to automate
+#--- Step2: mdb-based debug&run
+#---
 ##--    SL, 5.5.2022
+#---------------------
+#-- Step1: compile
+#---------------------
 #-create directory - eg:  dev11_mdb_test
 where git
 git clone https://github.com/stefanluethin-microchip/mu_dev11_mdbcore 
@@ -14,7 +20,13 @@ ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\
 pushd .
 cd .\dev11Labs_fw\firmware\CICDgit_samd21xplp.X  &&  make
 popd
+#- elf created in:
 ls -la dev11Labs_fw\firmware\CICDgit_samd21xplp.X\dist\samd21xplp\production
-#- elf create -> connect SAMD21-xpl and open console on vCOM of SAMD21-xpl
+
+#------------------------------
+#-- Step2: mdb-based debug&run
+#------------------------------
+#- open console on vCOM of SAMD21-xpl
 "C:\Program Files (x86)\teraterm\ttermpro.exe"
+#- now connect SAMD21-xpl and download+run test
 .\dev11Labs_mdbScripts\dev11mod3Lab_mdbbat-1a-run.bat
